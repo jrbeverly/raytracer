@@ -5,10 +5,10 @@
 //#include <glm/glm.hpp>
 #include <glm/ext.hpp>
 
-#define A4_INFINITY std::numeric_limits<double>::infinity()
+#define Raytracer_INFINITY std::numeric_limits<double>::infinity()
 
 // Determines the inverse of the projection matrix based on the parameters
-static glm::mat4 a4_get_proj_inverse(int width, int height, double fov, double dist, const glm::vec3& eye, const glm::vec3& view, const glm::vec3& up)
+static glm::mat4 Raytracer_get_proj_inverse(int width, int height, double fov, double dist, const glm::vec3& eye, const glm::vec3& view, const glm::vec3& up)
 {
     // Dimensions of the image
     double w = (double)width;
@@ -52,7 +52,7 @@ public:
     glm::vec3 normal;
     const Material* material;
 
-    Intersection() : point(glm::vec3(A4_INFINITY, A4_INFINITY, A4_INFINITY)), normal(glm::vec3(0.0, 0.0, 0.0)), material(NULL) { }
+    Intersection() : point(glm::vec3(Raytracer_INFINITY, Raytracer_INFINITY, Raytracer_INFINITY)), normal(glm::vec3(0.0, 0.0, 0.0)), material(NULL) { }
     Intersection(glm::vec3& p, glm::vec3& n, const Material* m) : point(p), normal(n), material(m) { }
 
     // Transforms the intersection

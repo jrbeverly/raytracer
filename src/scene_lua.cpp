@@ -44,7 +44,7 @@
 #include <vector>
 #include <map>
 
-#include "lua488.hpp"
+#include "luRaytracer88.hpp"
 
 #include "Light.hpp"
 #include "Mesh.hpp"
@@ -53,7 +53,7 @@
 #include "Primitive.hpp"
 #include "Material.hpp"
 #include "PhongMaterial.hpp"
-#include "A4.hpp"
+#include "Raytracer.hpp"
 
 typedef std::map<std::string,Mesh*> MeshMap;
 static MeshMap mesh_map;
@@ -344,7 +344,7 @@ int gr_render_cmd(lua_State* L)
   }
 
 	Image im( width, height);
-	A4_Render(root->node, im, eye, view, up, fov, ambient, lights);
+	Raytracer_Render(root->node, im, eye, view, up, fov, ambient, lights);
     im.savePng( filename );
 
 	return 0;

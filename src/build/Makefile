@@ -22,7 +22,7 @@ endif
 ifeq ($(config),debug)
   OBJDIR     = Debug
   TARGETDIR  = ..
-  TARGET     = $(TARGETDIR)/A4
+  TARGET     = $(TARGETDIR)/Raytracer
   DEFINES   += -DDEBUG
   INCLUDES  += -I../../shared -I../../shared/include -I../../shared/gl3w -I../../shared/imgui
   CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
@@ -44,7 +44,7 @@ endif
 ifeq ($(config),release)
   OBJDIR     = Release
   TARGETDIR  = ..
-  TARGET     = $(TARGETDIR)/A4
+  TARGET     = $(TARGETDIR)/Raytracer
   DEFINES   += -DNDEBUG
   INCLUDES  += -I../../shared -I../../shared/include -I../../shared/gl3w -I../../shared/imgui
   CPPFLAGS  += -MMD -MP $(DEFINES) $(INCLUDES)
@@ -74,7 +74,7 @@ OBJECTS := \
 	$(OBJDIR)/polyroots.o \
 	$(OBJDIR)/GeometryNode.o \
 	$(OBJDIR)/JointNode.o \
-	$(OBJDIR)/A4.o \
+	$(OBJDIR)/Raytracer.o \
 	$(OBJDIR)/Material.o \
 	$(OBJDIR)/SceneNode.o \
 
@@ -94,7 +94,7 @@ all: $(TARGETDIR) $(OBJDIR) prebuild prelink $(TARGET)
 	@:
 
 $(TARGET): $(GCH) $(OBJECTS) $(LDDEPS) $(RESOURCES)
-	@echo Linking A4
+	@echo Linking Raytracer
 	$(SILENT) $(LINKCMD)
 	$(POSTBUILDCMDS)
 
@@ -115,7 +115,7 @@ else
 endif
 
 clean:
-	@echo Cleaning A4
+	@echo Cleaning Raytracer
 ifeq (posix,$(SHELLTYPE))
 	$(SILENT) rm -f  $(TARGET)
 	$(SILENT) rm -rf $(OBJDIR)
@@ -167,7 +167,7 @@ $(OBJDIR)/GeometryNode.o: ../GeometryNode.cpp
 $(OBJDIR)/JointNode.o: ../JointNode.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-$(OBJDIR)/A4.o: ../A4.cpp
+$(OBJDIR)/Raytracer.o: ../Raytracer.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 $(OBJDIR)/Material.o: ../Material.cpp

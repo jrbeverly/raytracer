@@ -1,0 +1,1 @@
+docker run --rm -it -v $(pwd):/media --workdir=/media ubuntu bash
