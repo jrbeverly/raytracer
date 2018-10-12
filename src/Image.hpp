@@ -12,8 +12,9 @@ typedef unsigned int uint;
  * Note that colours in the range [0.0, 1.0] are mapped to the integer
  * range [0, 255] when writing PNG files.
  */
-class Image {
-public:
+class Image
+{
+  public:
 	// Construct an empty image.
 	Image();
 
@@ -21,12 +22,12 @@ public:
 	Image(uint width, uint height);
 
 	// Copy an image.
-	Image(const Image & other);
+	Image(const Image &other);
 
 	~Image();
 
 	// Copy the data from one image to another.
-	Image & operator=(const Image & other);
+	Image &operator=(const Image &other);
 
 	// Returns the width of the image.
 	uint width() const;
@@ -34,23 +35,23 @@ public:
 	// Returns the height of the image.
 	uint height() const;
 
-    // Retrieve a particular component from the image.
+	// Retrieve a particular component from the image.
 	double operator()(uint x, uint y, uint i) const;
 
 	// Retrieve a particular component from the image.
-	double & operator()(uint x, uint y, uint i);
+	double &operator()(uint x, uint y, uint i);
 
 	// Save this image into the PNG file with name 'filename'.
 	// Warning: If 'filename' already exists, it will be overwritten.
-	bool savePng(const std::string & filename);
+	bool savePng(const std::string &filename);
 
-	const double * data() const;
-	double * data();
+	const double *data() const;
+	double *data();
 
-private:
+  private:
 	uint m_width;
 	uint m_height;
-	double * m_data;
+	double *m_data;
 
 	static const uint m_colorComponents;
 };

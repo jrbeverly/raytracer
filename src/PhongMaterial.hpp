@@ -4,9 +4,10 @@
 
 #include "Material.hpp"
 
-class PhongMaterial : public Material {
+class PhongMaterial : public Material
+{
 public:
-  PhongMaterial(const glm::vec3& kd, const glm::vec3& ks, double shininess);
+  PhongMaterial(const glm::vec3 &kd, const glm::vec3 &ks, double shininess);
   virtual ~PhongMaterial();
 
   const glm::vec3 diffuse() const { return m_kd; }

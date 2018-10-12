@@ -8,7 +8,7 @@
 #define Raytracer_INFINITY std::numeric_limits<double>::infinity()
 
 // Determines the inverse of the projection matrix based on the parameters
-static glm::mat4 Raytracer_get_proj_inverse(int width, int height, double fov, double dist, const glm::vec3& eye, const glm::vec3& view, const glm::vec3& up)
+static glm::mat4 Raytracer_get_proj_inverse(int width, int height, double fov, double dist, const glm::vec3 &eye, const glm::vec3 &view, const glm::vec3 &up)
 {
     // Dimensions of the image
     double w = (double)width;
@@ -46,17 +46,19 @@ static glm::mat4 Raytracer_get_proj_inverse(int width, int height, double fov, d
     return inv_proj;
 }
 
-class Intersection {
-public:
+class Intersection
+{
+  public:
     glm::vec3 point; // intersection point
     glm::vec3 normal;
-    const Material* material;
+    const Material *material;
 
-    Intersection() : point(glm::vec3(Raytracer_INFINITY, Raytracer_INFINITY, Raytracer_INFINITY)), normal(glm::vec3(0.0, 0.0, 0.0)), material(NULL) { }
-    Intersection(glm::vec3& p, glm::vec3& n, const Material* m) : point(p), normal(n), material(m) { }
+    Intersection() : point(glm::vec3(Raytracer_INFINITY, Raytracer_INFINITY, Raytracer_INFINITY)), normal(glm::vec3(0.0, 0.0, 0.0)), material(NULL) {}
+    Intersection(glm::vec3 &p, glm::vec3 &n, const Material *m) : point(p), normal(n), material(m) {}
 
     // Transforms the intersection
-    void transform(const glm::mat4 transform) {
+    void transform(const glm::mat4 transform)
+    {
         // Converts the vert3 to vert4
         glm::vec4 pos = glm::vec4(point, 1.0);
         glm::vec4 norm = glm::vec4(normal, 0.0);
@@ -73,22 +75,25 @@ public:
         normal = glm::vec3(norm);
     }
 
-    void set(Intersection& intersection) {
+    void set(Intersection &intersection)
+    {
         point = intersection.point;
         normal = intersection.normal;
         material = intersection.material;
     }
 };
 
-class Ray {
-public:
+class Ray
+{
+  public:
     glm::vec3 origin;
     glm::vec3 direction;
 
-    Ray(glm::vec3 orig, glm::vec3 dir) : origin(orig), direction(dir) { }
+    Ray(glm::vec3 orig, glm::vec3 dir) : origin(orig), direction(dir) {}
 
     // Transforms the ray creating a new one with values
-    Ray transform(const glm::mat4 transform) const {
+    Ray transform(const glm::mat4 transform) const
+    {
         // Converts to vec4
         glm::vec4 new_origin = glm::vec4(origin, 1.0);
         glm::vec4 new_direction = glm::vec4(direction, 0.0);
