@@ -1,0 +1,24 @@
+{
+  "slug": "raytracer",
+  "namespace": "jrbeverly",
+  "status": "archived",
+  "icon": "icon.svg",
+  "license": {
+    "type": "MIT",
+    "content": "Jonathan Beverly <jrbeverly>"
+  },
+  "topics": [
+    "raytracer",
+    "graphics",
+    "broken-ray",
+    "mathematics",
+    "coursework"
+  ],
+  "languages": [
+    "C++",
+    "Dockerfile",
+    "Lua",
+    "Makefile",
+    "Shell"
+  ]
+}
