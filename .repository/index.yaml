@@ -1,0 +1,18 @@
+slug: raytracer
+description: A Raytracer that receives a scene defined in lua, and produces an image output.
+project: uwaterloo
+namespace:
+status: archived
+icon: icon.svg
+license:
+  type: MIT
+  content: Jonathan Beverly <jrbeverly>
+  year: 2017
+topics: |-
+  [
+    "raytracer",
+    "graphics",
+    "broken-ray",
+    "mathematics",
+    "coursework"
+  ]
